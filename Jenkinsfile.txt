@@ -36,7 +36,7 @@ pipeline {
                 echo 'Deploying....'
                 echo "Deployed with credentialss ${SERVER_CREDENTIALS}"
                 echo "some script ${SERVER_CREDENTIALS_USR} ${SERVER_CREDENTIALS_PSW} "
-                bat "copy target\\time-tracker.war \"${tomcatWeb}\\time-tracker.war\""
+                bat "copy target\\time-tracker-web-0.5.0-SNAPSHOT.war \"${tomcatWeb}\\time-tracker-web-0.5.0-SNAPSHOT.war\""
             }
         }
     }
