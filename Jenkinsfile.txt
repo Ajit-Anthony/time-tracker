@@ -3,6 +3,10 @@ pipeline {
         environment{
             NEW_VERSION = '1.3.0'
             SERVER_CREDENTIALS = credentials('server-cred')
+             jdk = tool name: 'JDK11'
+                env.JAVA_HOME = "${jdk}"
+                // next 2 are equivalents
+                bat "${jdk}/bin/java -version"
         }
         tools {
             maven 'apache-maven-3.8.2'
@@ -11,10 +15,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
-                jdk = tool name: 'JDK11'
-                env.JAVA_HOME = "${jdk}"
-                // next 2 are equivalents
-                bat "${jdk}/bin/java -version"
+               
                 bat 'java -version'
                 echo "Build Version is ${NEW_VERSION}"
                 bat "mvn clean package"
