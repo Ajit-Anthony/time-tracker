@@ -11,6 +11,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
+                bat 'java -version'
                  echo "Build Version is ${NEW_VERSION}"
                  bat "mvn clean package"
             }
