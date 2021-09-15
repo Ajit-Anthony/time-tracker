@@ -11,9 +11,13 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
+                jdk = tool name: 'JDK11'
+                env.JAVA_HOME = "${jdk}"
+                // next 2 are equivalents
+                bat "${jdk}/bin/java -version"
                 bat 'java -version'
-                 echo "Build Version is ${NEW_VERSION}"
-                 bat "mvn clean package"
+                echo "Build Version is ${NEW_VERSION}"
+                bat "mvn clean package"
             }
         }
         stage('Scan') {
