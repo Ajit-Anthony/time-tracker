@@ -38,7 +38,7 @@ pipeline {
               }
             }
             steps {
-                echo 'Deploying....${currentBuild.result}'
+                echo "Deploying....${currentBuild.result}"
                 echo "Deployed with credentialss ${SERVER_CREDENTIALS}"
                 echo "some script ${SERVER_CREDENTIALS_USR} ${SERVER_CREDENTIALS_PSW} "
                 bat "copy web\\target\\time-tracker-web-0.5.0-SNAPSHOT.war \"${tomcatWeb}\\time-tracker-web-0.5.0-SNAPSHOT.war\""
